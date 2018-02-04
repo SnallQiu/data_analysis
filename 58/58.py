@@ -16,13 +16,13 @@ dfold = pd.read_csv('12_29.csv')
 def avg(df):
     
     df['avg_price'].astype('int64')
-    df = df[df['avg_price']<100000]
+    df = df[df['avg_price']<100000 ]
     grouped = df.groupby('area_name').avg_price
     avg_price = grouped.mean()
     return avg_price
 
 #print(avg_price)
-avgold = avg(dfold)
+avgold = avg(dfold)[3:]
 avgnew = avg(dfnew)
 print(avgold)
 avg = pd.DataFrame(dict(avg_old = avgold,avg_new = avgnew ))
